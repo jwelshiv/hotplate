@@ -23,4 +23,11 @@ group :development do
 end
 
 group :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'email_spec'
+  gem 'cucumber-rails', :require => false
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
 end
