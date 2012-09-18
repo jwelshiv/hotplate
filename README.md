@@ -1,0 +1,4 @@
+hotplate
+========
+
+boilerplate rails project
