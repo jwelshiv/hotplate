@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'sqlite3'
+gem 'bootstrap-sass'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -20,6 +21,8 @@ end
 
 group :development do
   gem 'sextant'
+  gem 'guard-cucumber'
+  gem 'guard-spork'
 end
 
 group :test do
@@ -30,4 +33,5 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'spork'
 end
