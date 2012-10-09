@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require ./lib/modernizr
+//= require turbolinks
 //= require ./lib/bootstrap
 //= require_tree ./application

@@ -1,0 +1,19 @@
+body{
+  .navbar{
+    .nav{
+      float: none;
+
+      li.right {
+        float: right;
+      }
+
+      .dropdown{
+        padding: 10px;
+
+        .dropdown-toggle{
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
