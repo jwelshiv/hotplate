@@ -33,8 +33,23 @@ Hotplate::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  config.assets.debug = true
+  config.assets.debug = false
 
   # Default url options
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  Hotplate::Application.configure do
+    config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
+
+    # ...or, change some options...
+
+    config.middleware.insert_before(
+      Rack::Lock, Rack::LiveReload,
+      :min_delay => 500,
+      :max_delay => 10000,
+      :port => 35729,
+      :host => '0.0.0.0',
+      :ignore => [ %r{dont/modify\.html$} ]
+    )
+  end
 end

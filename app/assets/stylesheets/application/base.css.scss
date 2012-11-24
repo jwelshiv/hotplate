@@ -1,4 +1,7 @@
 body{
+  .content{
+    margin-top: 60px;
+  }
   .navbar{
     .nav{
       float: none;
@@ -15,5 +18,21 @@ body{
         }
       }
     }
+  }
+
+  .jumbotron{
+    padding: 40px 0 20px 0;
+    h1{
+      margin: 0 0 40px 0;
+      font-size: 5.6em;
+      text-transform: uppercase;
+      font-weight: normal;
+      letter-spacing: -0.05em;
+      color: #ccc;
+    }
+  }
+
+  .hidden{
+    display: none;
   }
 }

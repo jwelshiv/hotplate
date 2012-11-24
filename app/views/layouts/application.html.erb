@@ -18,16 +18,18 @@
 </head>
 
 <body>
-  <%= content_tag :p, notice, :class => "notice" %>
-  <%= content_tag :p, alert, :class => "alert" %>
-
   <%= render "layouts/main_navigation" %>
 
   <div class="container">
-    <%= yield %>
-    
+    <div class="content">
+      <%= content_tag :p, notice, :class => "notice" if notice %>
+      <%= content_tag :p, alert, :class => "alert" if alert %>
+
+      <%= yield %>
+    </div>
+
     <footer>
-      <p>&copy; Company <%= Time.now.year %></p>
+      <!--<p>&copy; Company <%= Time.now.year %></p>-->
     </footer>
   </div> <!-- /container -->
 

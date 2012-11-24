@@ -6,12 +6,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <%= link_to "Hotplate", root_url, :class => "brand" %>
+      <%= link_to "hotplate", root_url, :class => "brand" %>
       <div class="nav-collapse">
         <ul class="nav">
           <li class="active"><a href="#">Home</a></li>
+          <!--
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
+          -->
 
           <% if user_signed_in? %>
           <li class="right">
@@ -29,13 +31,13 @@
 
         <% if !user_signed_in? %>
           <%= form_for(:user, :url => user_session_path, :html => {:class => "navbar-form pull-right"}) do |f| %>
-            <%= f.email_field :email, :placeholder => "Email" %>
-            <%= f.password_field :password, :placeholder => "Password" %>
-            <%= f.submit "Sign in" %>
+            <%= f.hidden_field :email, :placeholder => "Email" %>
+            <%= f.hidden_field :password, :placeholder => "Password" %>
+            <%= f.submit "Sign in", :class => "btn" %>
           <% end %>
         <% end %>
-        
-      </div><!--/.nav-collapse -->
+
+      </div>
     </div>
   </div>
 </div>

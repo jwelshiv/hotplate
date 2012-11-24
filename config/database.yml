@@ -3,7 +3,6 @@ development:
   database: hotplate_development
   user: root
   password:
-  pool: 5
   timeout: 5000
 
 test: &test

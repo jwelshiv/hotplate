@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'pg'
 gem 'bootstrap-sass'
+gem 'sinatra'
+gem 'yajl-ruby'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -13,16 +15,11 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'omniauth-instagram'
 gem 'cancan'
 
 group :production do
   gem 'thin'
-end
-
-group :development do
-  gem 'sextant'
-  gem 'guard-cucumber'
-  gem 'guard-spork'
 end
 
 group :test do
@@ -34,4 +31,14 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'spork'
+end
+
+group :development do
+  gem 'sextant'
+  gem 'rack-livereload'
+  gem 'guard', '1.3.2'
+  gem 'guard-livereload', '1.0.0'
+
+  # OSX
+  gem 'rb-fsevent'
 end
