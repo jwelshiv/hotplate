@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title>Hotplate</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="hotplate">
+  <meta name="author" content="jwelshiv">
 
   <link rel="shortcut icon" href="../assets/ico/favicon.ico">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
@@ -17,21 +17,15 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body>
+<body class="<%= "#{action_name} #{controller_name}" %>">
   <%= render "layouts/main_navigation" %>
 
   <div class="container">
-    <div class="content">
-      <%= content_tag :p, notice, :class => "notice" if notice %>
-      <%= content_tag :p, alert, :class => "alert" if alert %>
+    <%= content_tag :div, notice, :class => "alert notice" if notice %>
+    <%= content_tag :div, alert, :class => "alert alert-block" if alert %>
 
-      <%= yield %>
-    </div>
-
-    <footer>
-      <!--<p>&copy; Company <%= Time.now.year %></p>-->
-    </footer>
-  </div> <!-- /container -->
+    <%= yield %>
+  </div>
 
   <%= javascript_include_tag "application" %>
 </body>

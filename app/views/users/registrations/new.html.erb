@@ -4,21 +4,19 @@
   </div>
 
   <div class="span3">
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+    <%= semantic_form_for resource, :as => resource_name, :url => registration_path(resource_name) do |f| %>
+      <%= f.semantic_errors %>
+      <%= f.inputs do %>
+        <%= f.input :email, :label => false, :placeholder => 'Email Address' %>
+        <%= f.input :password, :label => false, :placeholder => 'Password' %>
+        <%= f.input :password_confirmation, :label => false, :placeholder => 'Confirm password' %>
+      <% end %>
+      <%= f.actions do %>
+        <%= f.action :submit, :as => :button, :button_html => {:class => 'btn btn-large btn-success'} %>
+      <% end %>
+    <% end %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-
-    <%= f.submit "Sign up", :class => "btn btn-primary btn-large" %>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
   </div>
 </div>

@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 gem 'pg'
 gem 'bootstrap-sass'
 gem 'sinatra'
+gem 'formtastic'
 gem 'yajl-ruby'
 
 group :assets do
@@ -15,7 +16,6 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'omniauth-instagram'
 gem 'cancan'
 
 group :production do
