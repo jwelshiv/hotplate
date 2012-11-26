@@ -7,18 +7,16 @@ describe UsersController do
     sign_in @user
   end
 
-  describe "GET 'show'" do
-    
+  describe "GET profile" do
     it "should be successful" do
-      get :show, :id => @user.id
+      get :profile
       response.should be_success
     end
-    
+
     it "should find the right user" do
-      get :show, :id => @user.id
+      get :profile, :id => @user.id
       assigns(:user).should == @user
     end
-    
   end
 
 end

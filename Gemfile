@@ -24,6 +24,7 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'rack-test'
   gem 'factory_girl_rails'
   gem 'email_spec'
   gem 'cucumber-rails', :require => false

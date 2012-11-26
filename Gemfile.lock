@@ -243,6 +243,7 @@ DEPENDENCIES
   omniauth-facebook
   pg
   rack-livereload
+  rack-test
   rails (= 3.2.8)
   rb-fsevent
   rspec-rails
