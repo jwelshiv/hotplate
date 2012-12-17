@@ -48,8 +48,9 @@ Hotplate::Application.configure do
       :min_delay => 500,
       :max_delay => 10000,
       :port => 35729,
-      :host => '0.0.0.0',
-      :ignore => [ %r{dont/modify\.html$} ]
+      :host => 'localhost',
+      :ignore => [ %r{dont/modify\.html$} ],
+      #:source => :vendored
     )
   end
 end

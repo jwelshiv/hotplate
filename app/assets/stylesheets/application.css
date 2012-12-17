@@ -12,5 +12,6 @@
  *= require application/base
  *= require lib/bootstrap
  *= require lib/bootstrap-responsive
+ *= require application/bootstrap_changes
  *= require application/formtastic_changes
  */

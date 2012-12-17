@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :name, :password, :password_confirmation, :remember_me
   has_many :authentications
+  after_create :creation_setup
 
   def add_authentication(oauth_hash)
     authentications.build({provider:oauth_hash.provider, uid:oauth_hash.uid})
@@ -41,5 +42,25 @@ class User < ActiveRecord::Base
       password:Devise.friendly_token[0,20]
     })
     new_user
+  end
+
+  def profile
+    Profile.where(user_id:id).first
+  end
+
+  def create_profile
+    profile || Profile.create!({
+      user_id: self.id,
+      is_public: true,
+      #avatar: '',
+      first_name: self.name.present? ? self.name.split(' ').first : '',
+      last_name: self.name.present? ? (self.name.split(' ').count > 1 ? self.name.split(' ')[1] : '') : '',
+    })
+  end
+
+  private
+
+  def creation_setup
+    self.profile || self.create_profile
   end
 end

@@ -94,4 +94,14 @@ describe User do
     end
   end
 
+  describe "profile setup" do
+    before(:each) do 
+      @user = User.create!(@attr)
+    end
+
+    it "should create a profile when user created" do
+      @user.profile.should_not be_nil
+    end
+  end
+
 end

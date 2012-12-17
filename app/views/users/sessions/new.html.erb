@@ -4,7 +4,7 @@
   </div>
 
   <div class="span3">
-    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+    <%= facebook_sign_in_button %>
     <%= semantic_form_for resource, :as => resource_name, :url => session_path(resource_name) do |f| %>
       <%= f.semantic_errors %>
       <%= f.inputs do %>
@@ -13,7 +13,7 @@
         <%= f.input :remember_me, :as => :boolean, :wrapper_html => {:class => 'checkbox'}, :input_html => {:class => "checkbox"} %>
       <% end %>
       <%= f.actions do %>
-        <%= f.action :submit, :as => :button, :label => "Sign in", :button_html => {:class => 'btn btn-large btn-primary'} %>
+        <%= f.action :submit, :as => :button, :label => "Sign in", :button_html => {:class => 'btn btn-primary'} %>
       <% end %>
     <% end %>
 

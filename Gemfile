@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 gem 'pg'
+gem 'mongoid'
 gem 'bootstrap-sass'
 gem 'sinatra'
 gem 'formtastic'
-gem 'yajl-ruby'
+gem 'oj'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -23,6 +24,9 @@ group :production do
 end
 
 group :test do
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
   gem 'rspec-rails'
   gem 'rack-test'
   gem 'factory_girl_rails'
@@ -32,6 +36,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'spork'
+  gem 'simplecov', :require => false
 end
 
 group :development do
@@ -39,6 +44,8 @@ group :development do
   gem 'rack-livereload'
   gem 'guard', '1.3.2'
   gem 'guard-livereload', '1.0.0'
+  gem 'pry-rails'
+  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 
   # OSX
   gem 'rb-fsevent'
