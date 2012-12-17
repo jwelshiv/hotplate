@@ -37,7 +37,11 @@ class Deploy < Thor
 
   no_tasks do
     def run(command, options = {})
-      `echo "#{command}" > #{LOG_FILE}`
+      if options[:capture]
+        `echo "#{command}" > #{LOG_FILE}`
+      else
+        `echo "#{command}"`
+      end
 
       command = "#{command} > #{LOG_FILE} 2>&1" if options[:capture]
 
