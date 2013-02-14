@@ -7,6 +7,8 @@ gem 'bootstrap-sass'
 gem 'sinatra'
 gem 'formtastic'
 gem 'oj'
+gem 'mini_magick'
+gem 'stripe'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
