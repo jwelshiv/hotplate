@@ -2,12 +2,7 @@ require 'spec_helper'
 
 describe User do
   before(:each) do
-    @attr = {
-      :name => "Example User",
-      :email => "user@example.com",
-      :password => "foobar",
-      :password_confirmation => "foobar"
-    }
+    @attr = FactoryGirl.attributes_for(:user)
   end
 
   it "should create a new instance given a valid attribute" do
@@ -15,7 +10,7 @@ describe User do
   end
 
   it "should require an email address" do
-    no_email_user = User.new(@attr.merge(:email => ""))
+    no_email_user = User.new(@attr.merge({:email => ""}))
     no_email_user.should_not be_valid
   end
 
@@ -93,15 +88,4 @@ describe User do
       @user.encrypted_password.should_not be_blank
     end
   end
-
-  describe "profile setup" do
-    before(:each) do 
-      @user = User.create!(@attr)
-    end
-
-    it "should create a profile when user created" do
-      @user.profile.should_not be_nil
-    end
-  end
-
 end

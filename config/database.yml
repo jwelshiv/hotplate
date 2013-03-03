@@ -1,16 +1,13 @@
 development:
   adapter: postgresql
   database: hotplate_development
-  user: root
-  password:
+  host: localhost
   timeout: 5000
 
 test: &test
   adapter: postgresql
   database: hotplate_test
-  user: root
-  password:
-  pool: 5
+  host: localhost
   timeout: 5000
 
 production:
