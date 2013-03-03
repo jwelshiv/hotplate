@@ -7,9 +7,8 @@ class User < ActiveRecord::Base
          :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :name, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :remember_me
   has_many :authentications
-  after_create :creation_setup
 
   def add_authentication(oauth_hash)
     authentications.build({provider:oauth_hash.provider, uid:oauth_hash.uid})
@@ -38,29 +37,10 @@ class User < ActiveRecord::Base
   def self.new_from_oauth(oauth_hash)
     new_user = User.new({
       email:oauth_hash.info.email,
-      name:oauth_hash.extra.raw_info.name,
+      first_name:oauth_hash.extra.raw_info.first_name,
+      last_name:oauth_hash.extra.raw_info.last_name,
       password:Devise.friendly_token[0,20]
     })
     new_user
-  end
-
-  def profile
-    Profile.where(user_id:id).first
-  end
-
-  def create_profile
-    profile || Profile.create!({
-      user_id: self.id,
-      is_public: true,
-      #avatar: '',
-      first_name: self.name.present? ? self.name.split(' ').first : '',
-      last_name: self.name.present? ? (self.name.split(' ').count > 1 ? self.name.split(' ')[1] : '') : '',
-    })
-  end
-
-  private
-
-  def creation_setup
-    self.profile || self.create_profile
   end
 end

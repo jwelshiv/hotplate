@@ -14,5 +14,7 @@ Hotplate::Application.routes.draw do
     get "logout", :to => "devise/sessions#destroy"
   end
 
+  mount IncisorApp, :at => "/images"
+
   root :to => "pages#home"
 end
